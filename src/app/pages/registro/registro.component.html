@@ -1,0 +1,55 @@
+<div class="limiter animated fadeInRight">
+    <div class="container">
+
+    <form class="form-signin" #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" >
+        <h1 class="h3 mb-3 font-weight-normal">{{titulo}}</h1>
+        <label for="inputName" class="sr-only">Nombre</label>
+        <input type="text" 
+                id="inputName" 
+                name="nombre"
+                class="form-control" 
+                placeholder="Nombre"
+                [(ngModel)]="usuario.nombre" 
+                required>
+                <div *ngIf="registerForm.submitted && registerForm.controls['nombre'].errors">
+                    <span class="text-danger animated fadeIn">El nombre es obligatorio</span>
+                    <span></span>
+                </div>
+
+        <label for="inputEmail" class="sr-only">Correo Electronico</label>
+        <input type="email" 
+                id="inputEmail" 
+                class="form-control" 
+                placeholder="Correo electronico"
+                name="email"
+                [(ngModel)]="usuario.email" 
+                minlength="6"
+                required autofocus>
+                <div *ngIf="registerForm.submitted && registerForm.controls['email'].errors">
+                    <span class="text-danger animated fadeIn">El correo es obligatorio</span>
+                    <span></span>
+                </div>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" 
+                id="inputPassword" 
+                class="form-control" 
+                placeholder="Clave"
+                name="password" 
+                [(ngModel)]="usuario.password"
+                minlength="6"
+                required>
+                <div *ngIf="registerForm.submitted && registerForm.controls['password'].errors">
+                    <span class="text-danger animated fadeIn">La clave es obligatoria</span>
+                    <span></span>
+                </div>
+        
+        <div class="checkbox mb-3">
+        <label for="">
+                <a href="" [routerLink]="['/login']" >¿Ya tienes cuenta? / Login</a>
+        </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Registrar</button>
+    </form>
+
+    </div>
+</div>

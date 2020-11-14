@@ -1,0 +1,47 @@
+<div class="limiter animated fadeInLeft">
+    <div class="container">
+        <form class="form-signin" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+            <h1 class="h3 mb-3 font-weight-normal">Ingresar</h1>
+        
+            <label for="inputEmail" class="sr-only">Correo Electronico</label>
+            <input type="email" 
+                    id="inputEmail" 
+                    class="form-control" 
+                    placeholder="Correo electronico"
+                    name="email"
+                    [(ngModel)]="usuario.email" 
+                    minlength="6"
+                    required autofocus>
+                    <div *ngIf="loginForm.submitted && loginForm.controls['email'].errors">
+                        <span class="text-danger animated fadeIn">El correo es obligatorio</span>
+                        <span></span>
+                    </div>
+            
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" 
+                    id="inputPassword" 
+                    class="form-control" 
+                    placeholder="Clave"
+                    name="password" 
+                    [(ngModel)]="usuario.password"
+                    minlength="6"
+                    required>
+                    <div *ngIf="loginForm.submitted && loginForm.controls['password'].errors">
+                        <span class="text-danger animated fadeIn">La clave es obligatoria</span>
+                        <span></span>
+                    </div>
+            
+            <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" [(ngModel)]="recordarme" name="remember-me"> Recuerdame
+            </label>
+            <label for="">
+                <a href="" [routerLink]="['/registro']" >¿No tienes cuenta? / Registrate</a>
+            </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+        </form>
+    </div>
+
+</div>
+    

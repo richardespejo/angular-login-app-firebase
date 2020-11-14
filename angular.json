@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "login-app-firebase"
+    }
+  },
+  "defaultProject": "login-app-firebase",
+  "cli": {
+    "analytics": false
+  }
 }
